@@ -16,9 +16,9 @@ test('named exports', async (t) => {
 	);
 
 	const { shim, getPolyfill, implementation } = tanhModule;
-	t.equal(await import('math.tanh/shim'), shim, 'shim named export matches deep export');
-	t.equal(await import('math.tanh/implementation'), implementation, 'implementation named export matches deep export');
-	t.equal(await import('math.tanh/polyfill'), getPolyfill, 'getPolyfill named export matches deep export');
+	t.equal((await import('math.tanh/shim')).default, shim, 'shim named export matches deep export');
+	t.equal((await import('math.tanh/implementation')).default, implementation, 'implementation named export matches deep export');
+	t.equal((await import('math.tanh/polyfill')).default, getPolyfill, 'getPolyfill named export matches deep export');
 
 	t.end();
 });
